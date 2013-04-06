@@ -1,0 +1,78 @@
+new I550GPS i550gps;
+new I550Display i550display;
+
+setup()
+
+	i550gps.begin(); // init
+	i550display.begin();
+
+loop()
+
+	i550gps.update(); // reads new data from gps
+
+	i550dipslay.update();
+
+
+
+I550GPS()
+
+	begin()
+
+	update()
+		_bearing = gps.read_gps()
+
+
+WindowManager()
+
+	
+		
+
+I550Display()
+
+	begin()
+
+		standbyPage = I550StandbyPage()
+		livePage = I550LivePage()
+
+	update()
+
+		// read user input which page
+		currentPage = livePage
+
+		// update current page
+		currentPage.updateData()
+
+
+I550Page() // Interface. derive from this
+
+	push( char* data )
+		dataArray.push( data );
+
+
+	updateData()
+
+		// read dataArray to display
+		formatDisplayOutput();
+
+	formatDisplayOutput()
+
+		// please overwrite with actual Page
+		
+
+// this is our window we want to program
+// and fill in stuff like gps
+// current mp3
+// fotos of martin
+
+I550LivePage << I550Page
+
+	I550LivePage // contstructor
+
+	// overload I550Page.formatDisplayOutput method
+	//
+	formatDisplayOutput()
+
+		*i550gps;
+		// design display data
+
+	
