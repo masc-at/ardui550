@@ -75,4 +75,34 @@ I550LivePage << I550Page
 		*i550gps;
 		// design display data
 
+
+
+
+
+
+sensors
+ acceleration
+ magnetic
+ gps
+ barometric
+ temperature
+
+ system health (batteries, landpower, nav lights)
+ 
+
+ui devices
+ touchscreen
+ pressbuttons
+
+communication
+ serial bluetooth
+   remote control
+   streaming of nav data
+
+ serial debug (usb)
+
+
+ 
+
+
 	
