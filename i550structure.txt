@@ -86,10 +86,10 @@ sensors
  gps
  barometric
  temperature
+ charge/discharge 
 
- system health (batteries, landpower, nav lights)
+system  (batteries, landpower, nav lights, boardlight)
  
-
 ui devices
  touchscreen
  pressbuttons

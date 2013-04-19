@@ -6,7 +6,7 @@
 # Features:
 #   - boards.txt is used to derive parameters
 #   - All intermediate files are put into a separate directory (TMPDIRNAME)
-#   - Simple use: Copy Makefile into the same directory of the .pde file
+#   - Simple use: Copy Makefile into the same directory of the .ino file
 #
 # Limitations:
 #   - requires UNIX environment
@@ -76,7 +76,7 @@ SYSLIB:=$(SAM_DIR)variants/$(VARIANT)/$(shell sed -n -e "s/$(BOARD).build.varian
 
 
 #=== identify user files ===
-PDESRC:=$(shell ls *.pde)
+PDESRC:=$(shell ls *.ino)
 TARGETNAME=$(basename $(PDESRC))
 
 CDIRS:=$(EXTRA_DIRS) $(addsuffix utility/,$(EXTRA_DIRS))
@@ -101,7 +101,7 @@ OBJCOPY:=$(AVRTOOLSPATH)arm-none-eabi-objcopy
 OBJDUMP:=$(AVRTOOLSPATH)arm-none-eabi-objdump
 SIZE:=$(AVRTOOLSPATH)arm-none-eabi-size
 
-CPPSRC:=$(addprefix $(TMPDIRPATH),$(PDESRC:.pde=.cpp)) $(CPPSRC)
+CPPSRC:=$(addprefix $(TMPDIRPATH),$(PDESRC:.ino=.cpp)) $(CPPSRC)
 
 COBJ:=$(CSRC:.c=.o)
 CCOBJ:=$(CCSRC:.cc=.o)
@@ -203,12 +203,12 @@ $(TMPDIRPATH)%.s: %.cpp
 $(TMPDIRPATH)%.dis: $(TMPDIRPATH)%.o
 	@$(OBJDUMP) -S $< > $@
 
-.SUFFIXES: .elf .hex .pde
+.SUFFIXES: .elf .hex .ino
 
 .elf.hex:
 	@$(OBJCOPY) -O binary $< $@
 	
-$(TMPDIRPATH)%.cpp: %.pde
+$(TMPDIRPATH)%.cpp: %.ino
 	@cat $(ARDUINO_PATH)hardware/arduino/sam/cores/arduino/main.cpp > $@
 	@cat $< >> $@
 	@echo >> $@

@@ -15,28 +15,16 @@
 ***********************************************************************************/
 
 
-// Include Scheduler since we want to manage multiple tasks.
-#include <Scheduler.h>
-
-void setup() {
-  Serial.begin(9600);
-
-  // mainloop: system
- 
-  // loop 1: sensors readout 
-  Scheduler.startLoop(sensors_loop);
-
-  // loop 2: communication, bluetooth 
-//  Scheduler.startLoop(commmunication_loop);
-
-  // loop 3: ui 
-//  Scheduler.startLoop(ui_loop);
 
 
 
+
+void sensors_loop(){
+
+  Serial.println("sensors");
+
+  // init_gps()
 }
-
-
 
 
 
