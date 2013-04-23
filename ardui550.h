@@ -15,43 +15,27 @@
 ***********************************************************************************/
 
 
-// Include Scheduler since we want to manage multiple tasks.
+#ifndef ardui550_h
+#define ardui550_h
 
-#include <Scheduler.h>
-
-
-// Arduino Wire library is required if I2Cdev I2CDEV_ARDUINO_WIRE implementation
-// is used in I2Cdev.h
-
-#include "Wire.h"
-#include "I2Cdev.h"
-
-#include "ardui550.h"
+#if defined(ARDUINO) && ARDUINO >= 100
+#include "Arduino.h"
+#else
+#include "WProgram.h"
+#endif
 
 
 
+class ardui550
+{
+public:
 
-void setup() {
-  Serial.begin(9600);
+private:
 
-  // mainloop: system
-  system_init(); 
-
-  // loop 1: sensors readout 
-  sensors_init();
-  Scheduler.startLoop(sensors_loop);
-
-  // loop 2: communication, bluetooth 
-//  Scheduler.startLoop(commmunication_loop);
-
-  // loop 3: ui 
-//  Scheduler.startLoop(ui_loop);
-
-
-
-}
+};
 
 
 
 
+#endif
 

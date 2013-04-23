@@ -17,6 +17,8 @@
 
 
 
+void system_init(){
+}
 
 
 void loop(){

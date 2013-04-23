@@ -1,4 +1,3 @@
-
 /**********************************************************************************
 * ardui550 is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
@@ -14,44 +13,12 @@
 * written by martin schneebacher thorsten zerha 
 ***********************************************************************************/
 
-
-// Include Scheduler since we want to manage multiple tasks.
-
-#include <Scheduler.h>
+#ifndef sensors_h
+#define sensors_h
 
 
-// Arduino Wire library is required if I2Cdev I2CDEV_ARDUINO_WIRE implementation
-// is used in I2Cdev.h
-
-#include "Wire.h"
-#include "I2Cdev.h"
-
-#include "ardui550.h"
+void sensors_init();
+void sensors_loop();
 
 
-
-
-void setup() {
-  Serial.begin(9600);
-
-  // mainloop: system
-  system_init(); 
-
-  // loop 1: sensors readout 
-  sensors_init();
-  Scheduler.startLoop(sensors_loop);
-
-  // loop 2: communication, bluetooth 
-//  Scheduler.startLoop(commmunication_loop);
-
-  // loop 3: ui 
-//  Scheduler.startLoop(ui_loop);
-
-
-
-}
-
-
-
-
-
+#endif
