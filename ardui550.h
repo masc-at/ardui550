@@ -54,6 +54,7 @@ struct ardui550
   int16_t roll;
   int16_t yaw;
 
+  uint16_t SPD;  // boat speed
   uint16_t SOG;  // speed over ground
   uint16_t COG;  // course over ground
   uint16_t VMG;  // velocity made good
