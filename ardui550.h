@@ -58,8 +58,8 @@ struct ardui550
   uint16_t COG;  // course over ground
   uint16_t VMG;  // velocity made good
 
-  uint16_t AWA;  // aparent wind angle
-  uint16_t AWS;  // aparent wind speed
+  uint16_t AWA;  // apparent wind angle
+  uint16_t AWS;  // apparent wind speed
   uint16_t TWA;  // true wind angle
   uint16_t TWS;  // true wind speed
   
