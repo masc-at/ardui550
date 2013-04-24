@@ -30,9 +30,13 @@
 
 
 
+struct ardui550 hull352;
+
 
 void setup() {
   Serial.begin(9600);
+  Wire.begin();
+
 
   // mainloop: system
   system_init(); 

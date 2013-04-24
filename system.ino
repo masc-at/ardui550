@@ -23,8 +23,8 @@ void system_init(){
 
 void loop(){
 
-  Serial.print("system");
-
+  Serial.println("system alive");
+  delay(10000);
 }
 
 

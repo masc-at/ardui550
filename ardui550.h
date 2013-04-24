@@ -24,16 +24,50 @@
 #include "WProgram.h"
 #endif
 
+#define DEBUG 1
 
 
-class ardui550
+// status bits in status_sensors
+#define MAG        1
+#define ACC        2
+#define BAROMETER  4
+#define GPS        8
+#define ANEMOMETER 16
+#define LIGHT      32
+
+// user units
+#define U_TEMPERATURE 1   // 0: °C  - 1: °F
+#define U_PRESSURE    2   // 0: absolute - 1: relative
+
+
+struct ardui550
 {
-public:
+  int16_t pos_lat;
+  int16_t pos_long;
+  int16_t pos_alt;
 
-private:
+  float temperature;
+  float pressure_abs;
+  float pressure_rel;
+
+  int16_t pitch;
+  int16_t roll;
+  int16_t yaw;
+
+  uint16_t SOG;  // speed over ground
+  uint16_t COG;  // course over ground
+  uint16_t VMG;  // velocity made good
+
+  uint16_t AWA;  // aparent wind angle
+  uint16_t AWS;  // aparent wind speed
+  uint16_t TWA;  // true wind angle
+  uint16_t TWS;  // true wind speed
+  
+  byte status_sensors; 
+  byte user_units; 
+  int8_t timezone;
 
 };
-
 
 
 
